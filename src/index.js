@@ -1,13 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import PeerConnection from "./PeerConnection"
+import ConnectionContext from "./ConnectionContext"
+
+var connection = new PeerConnection(window.location.pathname)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ConnectionContext.Provider value={connection}>
+      <App />
+    </ConnectionContext.Provider>
   </React.StrictMode>
 );
 
